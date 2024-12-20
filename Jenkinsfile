@@ -4,21 +4,21 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          bat 'dotnet build AdventureWorksAPI.sln'
+          sh 'dotnet build AdventureWorksApi.sln'
         }
       }
     }
     stage('Docker Build') {
       steps {
         script {
-          bat 'docker build -t adventureworks-api .'
+          sh 'docker build -t adventureworks-api .'
         }
       }
     }
     stage('Deploy to Staging') {
       steps {
         script {
-          bat 'docker-compose up --build -d'
+          sh 'docker-compose up --build -d'
         }
       }
     }
