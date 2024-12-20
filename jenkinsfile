@@ -23,4 +23,15 @@ pipeline {
       }
     }
   }
+  agent any
+  environment {
+    SHELL = 'C:\\Program Files\\Git\\bin\\sh.exe'
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'echo "Building the project"'
+      }
+    }
+  }
 }
